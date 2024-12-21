@@ -1,0 +1,14 @@
+[
+    {
+        "title": "IoT Dashboard",
+        "description": "A dashboard to monitor IoT devices.",
+        "image": "assets/images/project1.jpg",
+        "link": "https://github.com/elhassan/iot-dashboard"
+    },
+    {
+        "title": "Big Data Analytics",
+        "description": "A platform for processing large datasets.",
+        "image": "assets/images/project2.jpg",
+        "link": "https://github.com/elhassan/big-data-system"
+    }
+]
