@@ -1,105 +1,2412 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Elhassan Daguagui - Développeur IoT et Big Data">
-    <title>Portfolio - Elhassan Daguagui</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Elhassan Daguagui - Data Scientist & AI Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0ea5e9;
+            --accent: #8b5cf6;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .gradient-text {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.5; }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Section Générique */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card h4 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .skill-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* Experience Section */
+        #experience {
+            background: var(--light);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.6rem;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: var(--primary);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .timeline-header h3 {
+            color: var(--dark);
+            font-size: 1.4rem;
+        }
+
+        .timeline-header .company {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .timeline-date {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .timeline-content li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray);
+            position: relative;
+        }
+
+        .timeline-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-icon i {
+            font-size: 4rem;
+            color: var(--white);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge {
+            background: #f0f9ff;
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: var(--white);
+        }
+
+        /* Certifications Section */
+        #certifications {
+            background: var(--light);
+        }
+
+        .certifications-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .cert-stat {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .cert-stat:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-stat i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cert-stat h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-stat p {
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .cert-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        }
+
+        .cert-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover .cert-image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .cert-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cert-card:hover .cert-overlay {
+            opacity: 1;
+        }
+
+        .cert-overlay i {
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .cert-info {
+            padding: 1.5rem;
+        }
+
+        .cert-info h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .cert-info .cert-org {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .cert-info .cert-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-info .cert-date i {
+            color: var(--secondary);
+        }
+
+        .cert-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Modal pour les certificats */
+        .cert-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.95);
+            animation: fadeIn 0.3s;
+        }
+
+        .cert-modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            animation: zoomIn 0.3s;
+        }
+
+        .cert-modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: var(--white);
+            padding: 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .cert-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: var(--white);
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .cert-modal-close:hover,
+        .cert-modal-close:focus {
+            color: var(--secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 9999;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            animation: pulse-chat 2s infinite;
+        }
+
+        @keyframes pulse-chat {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(37, 99, 235, 0.6); }
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 99, 235, 0.6);
+        }
+
+        .chatbot-window {
+            position: fixed;
+            bottom: 6rem;
+            right: 2rem;
+            width: 400px;
+            height: 600px;
+            background: var(--white);
+            border-radius: 1rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-window.active {
+            display: flex;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-header-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .chatbot-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .chatbot-status {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .chatbot-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chatbot-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chatbot-messages::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .chat-message {
+            display: flex;
+            gap: 0.75rem;
+            animation: fadeInMessage 0.3s ease;
+        }
+
+        @keyframes fadeInMessage {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+
+        .message-avatar.bot {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+        }
+
+        .message-avatar.user {
+            background: var(--gray);
+            color: var(--white);
+        }
+
+        .message-content {
+            max-width: 75%;
+            padding: 0.875rem 1.125rem;
+            border-radius: 1rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .chat-message.bot .message-content {
+            background: var(--white);
+            color: var(--dark);
+            border-bottom-left-radius: 0.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .chat-message.user .message-content {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border-bottom-right-radius: 0.25rem;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 1rem;
+            width: fit-content;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        .chatbot-input-container {
+            padding: 1rem;
+            background: var(--white);
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 2rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .chatbot-send {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .chatbot-send:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .chatbot-send:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .quick-questions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .quick-question-btn {
+            padding: 0.5rem 1rem;
+            background: var(--white);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .quick-question-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Chatbot */
+        @media (max-width: 768px) {
+            .chatbot-window {
+                width: calc(100vw - 2rem);
+                height: calc(100vh - 8rem);
+                right: 1rem;
+                bottom: 5rem;
+            }
+
+            .chatbot-toggle {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: var(--light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .contact-item div h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item div p {
+            margin: 0;
+            color: var(--light);
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            border-radius: 0.5rem;
+            color: var(--white);
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0f1e;
+            color: var(--light);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image-wrapper {
+                width: 300px;
+                height: 300px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo"><span>&lt;/&gt;</span> Elhassan Daguagui</div>
-        <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="social-links">
-            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                Elhassan Daguagui
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <header id="home" class="hero-section">
-        <div class="hero-content">
-            <h1>Hello, I'm <span>Elhassan</span>,</h1>
-            <h2>Data Scientist & Master's Student</h2>
-            <p>Pursuing a Master's in Information and Intelligent Systems (M2SI) at INSEA Rabat, specializing in data analysis, AI, and innovative systems development.</p>
-            <div class="hero-buttons">
-                <a href="assets/cv_elhassan_daguagui.pdf" class="btn" target="_blank">View my CV</a>
-                <a href="#contact" class="btn-secondary">Contact Me</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Bonjour, je suis <span class="gradient-text">Elhassan</span></h1>
+                <h2>Data Scientist & AI Engineer</h2>
+                <p>Étudiant en Master M2SI à l'INSEA Rabat, spécialisé en intelligence artificielle, Machine Learning et analyse de données avancées. Passionné par la création de solutions innovantes basées sur l'IA pour résoudre des problèmes complexes.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Me contacter
+                    </a>
+                    <a href="assets/cv_elhassan_daguagui.pdf" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-download"></i> Télécharger CV
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/elhassan-daguagui" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/ElhassanDaguagui555" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:hdagaugui@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+212681787539"><i class="fas fa-phone"></i></a>
+                </div>
             </div>
-        </div>
-    
-        <div class="hero-photo">
-            <img src="assets/images/image (8).png" alt="Elhassan Daguagui">
-        </div>
-    </header>
-    
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <div class="photo">
-                <img src="assets/images/image (8).png" alt="Elhassan Daguagui">
-            </div>
-            <div class="bio">
-                <p>Hi, I'm Elhassan Daguagui, a Master's student in M2SI at INSEA Rabat. I am passionate about data science and applying AI to solve real-world problems. I am always excited to work on innovative projects involving data analysis and machine learning.</p>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="assets/images/image (8).png" alt="Elhassan Daguagui">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio-section">
-        <h2>My Projects</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <i class="fas fa-comment-dots portfolio-icon"></i>
-                <h3><a href="https://github.com/username/sentiment-analysis" target="_blank">Sentiment Analysis</a></h3>
-                <p>Comprehensive sentiment analysis project using NLP and deep learning technologies.</p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de moi</h2>
+                <p>Découvrez mon parcours et mes ambitions</p>
             </div>
-            <div class="portfolio-item">
-                <i class="fas fa-robot portfolio-icon"></i>
-                <h3><a href="https://github.com/ElhassanDaguagui555/chatbot-dialoGPT" target="_blank">Chatbot</a></h3>
-                <p>An AI-powered chatbot to answer questions in the field of computer science.</p>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Data Scientist passionné par l'IA</h3>
+                    <p>Actuellement en Master M2SI à l'INSEA Rabat, je me spécialise dans l'intelligence artificielle et l'analyse de données. Mon objectif est de contribuer à des projets stratégiques data-driven en développant des solutions innovantes basées sur le Machine Learning et le NLP.</p>
+                    <p>Fort d'une expérience dans la conception de pipelines de données, le développement d'assistants IA et la création d'applications mobiles intégrant l'IA, je cherche constamment à repousser les limites de la technologie pour créer de la valeur ajoutée.</p>
+                    <p>Ma passion pour la data science me pousse à explorer continuellement de nouvelles techniques et à participer activement à la transformation digitale des organisations.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>M2SI</h4>
+                        <p>INSEA Rabat</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>8+</h4>
+                        <p>Projets réalisés</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-certificate"></i>
+                        <h4>15+</h4>
+                        <p>Certifications</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-code"></i>
+                        <h4>Expert</h4>
+                        <p>Python & ML</p>
+                    </div>
+                </div>
             </div>
-            <div class="portfolio-item">
-                <i class="fas fa-book portfolio-icon"></i>
-                <h3><a href="https://github.com/username/book-recommendation-system" target="_blank">Book Recommendation System</a></h3>
-                <p>A personalized recommendation system for books using collaborative and content-based filtering.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Compétences Techniques</h2>
+                <p>Technologies et outils que je maîtrise</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Data Science & ML</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">NLTK</span>
+                        <span class="skill-tag">spaCy</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Bases de Données</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Neo4j</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">FAISS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> DevOps & Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Airflow</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">API REST</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Visualisation & Web</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">BeautifulSoup</span>
+                        <span class="skill-tag">Selenium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Expériences Professionnelles</h2>
+                <p>Mon parcours professionnel</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Stagiaire Data Engineer & IA</h3>
+                                <p class="company">estatmar.ma - Casablanca</p>
+                            </div>
+                            <span class="timeline-date">2025 (3 mois)</span>
+                        </div>
+                        <ul>
+                            <li>Conception et déploiement d'un pipeline automatisé de collecte et analyse d'avis Google Maps avec BeautifulSoup/Selenium et techniques NLP avancées</li>
+                            <li>Architecture complète : Orchestration Airflow, base PostgreSQL, API Flask, visualisation Next.js/Chart.js, Docker</li>
+                            <li>Extraction d'insights clients et génération de rapports automatisés pour le secteur bancaire</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Stagiaire Développeur IA</h3>
+                                <p class="company">3D Smart Factory - Mohammadia</p>
+                            </div>
+                            <span class="timeline-date">2023 (2 mois)</span>
+                        </div>
+                        <ul>
+                            <li>Développement d'un assistant IA de recherche scientifique intégrant SerpAPI et Gemini AI</li>
+                            <li>Implémentation de recherche vectorielle avec FAISS et base de données graphe Neo4j</li>
+                            <li>Création d'une API Flask et interface utilisateur Streamlit pour interrogation intelligente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications Professionnelles</h2>
+                <p>Mes qualifications et formations continues</p>
+            </div>
+            <div class="certifications-stats">
+                <div class="cert-stat">
+                    <i class="fas fa-award"></i>
+                    <h3>15+</h3>
+                    <p>Certifications</p>
+                </div>
+                <div class="cert-stat">
+                    <i class="fas fa-university"></i>
+                    <h3>IBM, Oracle, Meta</h3>
+                    <p>Organismes reconnus</p>
+                </div>
+                <div class="cert-stat">
+                    <i class="fas fa-clock"></i>
+                    <h3>2024-2025</h3>
+                    <p>Période d'obtention</p>
+                </div>
+            </div>
+            <div class="certifications-grid" id="certificationsGrid">
+                <!-- Les certifications seront chargées dynamiquement ici -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour agrandir les certificats -->
+    <div id="certModal" class="cert-modal">
+        <span class="cert-modal-close">&times;</span>
+        <img class="cert-modal-content" id="modalImg">
+        <div class="cert-modal-caption" id="modalCaption"></div>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projets Réalisés</h2>
+                <p>Découvrez mes réalisations techniques</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Assistant IA Scientifique Multi-Domaine</h3>
+                        <p>Développement d'un assistant IA professionnel capable d'effectuer des recherches approfondies et de synthétiser l'information de manière professionnelle.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">SerpAPI</span>
+                            <span class="tech-badge">Neo4j</span>
+                            <span class="tech-badge">FAISS</span>
+                            <span class="tech-badge">Gemini AI</span>
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">Streamlit</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Privé
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Pipeline Data - Analyse Avis Bancaires</h3>
+                        <p>Pipeline complet de collecte, analyse et valorisation des avis clients des agences bancaires au Maroc depuis Google Maps.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">BeautifulSoup</span>
+                            <span class="tech-badge">Selenium</span>
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">Airflow</span>
+                            <span class="tech-badge">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Privé
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Générateur Vidéos IA pour Restaurants</h3>
+                        <p>Solution end-to-end d'automatisation de création vidéo publicitaire utilisant l'IA générative (Stable Diffusion, LoRA).</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Stable Diffusion</span>
+                            <span class="tech-badge">LoRA</span>
+                            <span class="tech-badge">Gradio</span>
+                            <span class="tech-badge">CV2</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ElhassanDaguagui555/projet_AI_g-n-rative.git" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Voir sur GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Application Mobile Flutter avec IA</h3>
+                        <p>Application complète avec assistant virtuel Google Gemini AI, génération d'images et détection d'objets en temps réel (YOLOv5).</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Flutter</span>
+                            <span class="tech-badge">Dart</span>
+                            <span class="tech-badge">Gemini AI</span>
+                            <span class="tech-badge">YOLOv5</span>
+                            <span class="tech-badge">TensorFlow Lite</span>
+                            <span class="tech-badge">Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ElhassanDaguagui555/flutter-assistance-vocale.git" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Voir sur GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Système de Recommandation de Livres</h3>
+                        <p>Application web de gestion de bibliothèque avec système de recommandation basé sur TF-IDF et similarité cosinus.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Streamlit</span>
+                            <span class="tech-badge">TF-IDF</span>
+                            <span class="tech-badge">SQLite</span>
+                            <span class="tech-badge">Scikit-learn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ElhassanDaguagui555/book_recommendation_system.git" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Voir sur GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Prédiction Prix de Voitures</h3>
+                        <p>Pipeline ML complet pour prédire le prix de voitures d'occasion avec interface Streamlit interactive.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Scikit-learn</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">Streamlit</span>
+                            <span class="tech-badge">Regression</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ElhassanDaguagui555/car_price_prediction_project.git" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Voir sur GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Chatbot DialoGPT</h3>
+                        <p>Chatbot intelligent spécialisé pour répondre aux questions dans le domaine de l'informatique.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">DialoGPT</span>
+                            <span class="tech-badge">Transformers</span>
+                            <span class="tech-badge">NLP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ElhassanDaguagui555/chatbot-dialoGPT" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Voir sur GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Analyse du Bonheur Mondial</h3>
+                        <p>Étude statistique approfondie avec ACP et analyse factorielle pour identifier les facteurs clés du bonheur mondial.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">NumPy</span>
+                            <span class="tech-badge">ACP</span>
+                            <span class="tech-badge">Matplotlib</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <h2>Contact Me</h2>
-        <form action="https://formspree.io/f/xzzbkdkj" method="POST" class="contact-form">
-            <div class="form-group">
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Contactez-moi</h2>
+                <p style="color: var(--light);">N'hésitez pas à me contacter pour toute opportunité ou collaboration</p>
             </div>
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Restons en contact</h3>
+                    <p>Je suis toujours ouvert aux nouvelles opportunités et collaborations dans le domaine de la Data Science et de l'Intelligence Artificielle.</p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hdagaugui@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Téléphone</h4>
+                                <p>+212 681 787 539</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Localisation</h4>
+                                <p>Rabat, Maroc</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p>elhassan-daguagui</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form action="https://formspree.io/f/xzzbkdkj" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Envoyer le message
+                    </button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" placeholder="Write your message" required></textarea>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2024 Elhassan Daguagui. Tous droits réservés.</p>
+        <p>&copy; 2025 Elhassan Daguagui. Tous droits réservés.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--gray);">
+            Développé avec <i class="fas fa-heart" style="color: #ef4444;"></i> et passion pour la Data Science
+        </p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <div class="chatbot-avatar">
+                        🤖
+                    </div>
+                    <div>
+                        <h3>Assistant IA</h3>
+                        <div class="chatbot-status">
+                            <span class="status-dot"></span>
+                            En ligne
+                        </div>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-message bot">
+                    <div class="message-avatar bot">🤖</div>
+                    <div class="message-content">
+                        Bonjour ! Je suis l'assistant IA d'Elhassan. Je peux répondre à vos questions sur son parcours, ses compétences, ses projets et ses certifications. Comment puis-je vous aider ?
+                        <div class="quick-questions">
+                            <button class="quick-question-btn" onclick="askQuestion('Parle-moi du parcours d\'Elhassan')">
+                                📚 Parcours
+                            </button>
+                            <button class="quick-question-btn" onclick="askQuestion('Quelles sont ses compétences techniques ?')">
+                                💻 Compétences
+                            </button>
+                            <button class="quick-question-btn" onclick="askQuestion('Montre-moi ses projets')">
+                                🚀 Projets
+                            </button>
+                            <button class="quick-question-btn" onclick="askQuestion('Quelles certifications a-t-il ?')">
+                                🏆 Certifications
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input-container">
+                <input 
+                    type="text" 
+                    class="chatbot-input" 
+                    id="chatbotInput" 
+                    placeholder="Posez votre question..."
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button class="chatbot-send" id="chatbotSend" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    
+        // ============= CONFIGURATION API GEMINI =============
+        // IMPORTANT: Remplacez par votre clé API Gemini gratuite
+        const GEMINI_API_KEY = 'AIzaSyD019oZ1FbMX5N3bv-cYtkBjAt4iLwtW2w';
+        const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+
+        // ============= BASE DE CONNAISSANCES (RAG) =============
+        const knowledgeBase = {
+            profile: {
+                name: "Elhassan Daguagui",
+                title: "Data Scientist & AI Engineer",
+                location: "Rabat, Maroc",
+                age: 22,
+                email: "hdagaugui@gmail.com",
+                phone: "+212 681 787 539",
+                linkedin: "elhassan-daguagui",
+                github: "ElhassanDaguagui555"
+            },
+            education: [
+                {
+                    degree: "Master M2SI (Systèmes Intelligents et Systèmes d'Information)",
+                    institution: "INSEA, Rabat",
+                    period: "2024-en cours",
+                    description: "Spécialisation en analyse de données, IA et systèmes décisionnels"
+                },
+                {
+                    degree: "Licence Sciences Mathématiques et Informatiques (SMI)",
+                    institution: "Université Ibn Zohr, Agadir",
+                    period: "2021-2024",
+                    description: "Statistiques, Bases de données, Programmation"
+                }
+            ],
+            experience: [
+                {
+                    role: "Stagiaire Data Engineer & IA",
+                    company: "estatmar.ma",
+                    location: "Casablanca",
+                    period: "2025 (3 mois)",
+                    tasks: [
+                        "Conception et déploiement d'un pipeline automatisé de collecte et analyse d'avis Google Maps",
+                        "Technologies: BeautifulSoup, Selenium, NLP, PostgreSQL, Airflow, Flask, Docker",
+                        "Extraction d'insights clients pour le secteur bancaire"
+                    ]
+                },
+                {
+                    role: "Stagiaire Développeur IA",
+                    company: "3D Smart Factory",
+                    location: "Mohammadia",
+                    period: "2023 (2 mois)",
+                    tasks: [
+                        "Développement d'un assistant IA de recherche scientifique",
+                        "Technologies: SerpAPI, Gemini AI, FAISS, Neo4j, Flask, Streamlit",
+                        "Implémentation de recherche vectorielle"
+                    ]
+                }
+            ],
+            skills: {
+                "Data Science & ML": ["Python", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "PyTorch", "NLP", "NLTK", "spaCy", "Machine Learning", "Deep Learning"],
+                "Bases de Données": ["SQL", "PostgreSQL", "MongoDB", "Neo4j", "MySQL", "SQLite", "FAISS"],
+                "DevOps & Engineering": ["Docker", "Airflow", "Flask", "FastAPI", "API REST", "Git"],
+                "Visualisation": ["Tableau", "Power BI", "Matplotlib", "Seaborn", "Streamlit"],
+                "Web Scraping": ["BeautifulSoup", "Scrapy", "Selenium", "Playwright"],
+                "Autres": ["Flutter", "Dart", "Firebase", "Laravel", "Java", "C++"]
+            },
+            projects: [
+                {
+                    name: "Assistant IA Scientifique Multi-Domaine",
+                    description: "Assistant IA professionnel pour recherches approfondies avec SerpAPI, Neo4j, FAISS et Gemini AI",
+                    technologies: ["Python", "SerpAPI", "Neo4j", "FAISS", "Gemini AI", "Flask", "Streamlit"],
+                    status: "privé"
+                },
+                {
+                    name: "Pipeline Data - Analyse Avis Bancaires",
+                    description: "Pipeline complet de collecte et analyse d'avis Google Maps avec NLP pour le secteur bancaire",
+                    technologies: ["Python", "BeautifulSoup", "Selenium", "NLP", "PostgreSQL", "Airflow", "Docker"],
+                    status: "privé"
+                },
+                {
+                    name: "Générateur Vidéos IA pour Restaurants",
+                    description: "Solution d'automatisation de création vidéo publicitaire avec Stable Diffusion et LoRA",
+                    technologies: ["Python", "Stable Diffusion", "LoRA", "Gradio", "CV2"],
+                    github: "https://github.com/ElhassanDaguagui555/projet_AI_g-n-rative.git"
+                },
+                {
+                    name: "Application Mobile Flutter avec IA",
+                    description: "Application avec assistant virtuel Gemini AI, génération d'images et détection d'objets YOLOv5",
+                    technologies: ["Flutter", "Dart", "Gemini AI", "YOLOv5", "TensorFlow Lite", "Firebase"],
+                    github: "https://github.com/ElhassanDaguagui555/flutter-assistance-vocale.git"
+                },
+                {
+                    name: "Système de Recommandation de Livres",
+                    description: "Application web de gestion de bibliothèque avec système de recommandation TF-IDF",
+                    technologies: ["Python", "Streamlit", "TF-IDF", "SQLite", "Scikit-learn"],
+                    github: "https://github.com/ElhassanDaguagui555/book_recommendation_system.git"
+                },
+                {
+                    name: "Prédiction Prix de Voitures",
+                    description: "Pipeline ML complet pour prédire le prix de voitures d'occasion",
+                    technologies: ["Python", "Scikit-learn", "Pandas", "Streamlit"],
+                    github: "https://github.com/ElhassanDaguagui555/car_price_prediction_project.git"
+                }
+            ],
+            certifications: [
+                "Oracle Certified Generative AI Professional (Août 2025)",
+                "Oracle Certified Data Science Professional (Août 2025)",
+                "IBM Applied Data Science Capstone (Oct. 2025)",
+                "IBM Machine Learning with Python (Sept. 2025)",
+                "IBM Data Visualization (Août 2025)",
+                "IBM Data Analysis with Python (Août 2025)",
+                "IBM Databases & SQL for Data Science (Juil. 2025)",
+                "DeepLearning.AI & Stanford: Supervised Machine Learning (Août 2025)",
+                "IBM Flutter and Dart: Developing Mobile Apps (Sept. 2025)",
+                "Yonsei University: IoT, Wireless & Cloud Computing (Août 2025)",
+                "Et plus de 15 certifications au total"
+            ]
+        };
+
+        // ============= FONCTIONS CHATBOT =============
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+
+        // Toggle chatbot
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('active');
+            if (chatbotWindow.classList.contains('active')) {
+                chatbotInput.focus();
+            }
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.remove('active');
+        });
+
+        // Fonction pour rechercher dans la base de connaissances (RAG local)
+        function searchKnowledge(query) {
+            query = query.toLowerCase();
+            let context = "";
+
+            // Recherche intelligente dans la base de connaissances
+            if (query.includes('parcours') || query.includes('formation') || query.includes('étude') || query.includes('education')) {
+                context += `Formation:\n${JSON.stringify(knowledgeBase.education, null, 2)}\n\n`;
+            }
+            
+            if (query.includes('expérience') || query.includes('stage') || query.includes('travail') || query.includes('entreprise')) {
+                context += `Expérience professionnelle:\n${JSON.stringify(knowledgeBase.experience, null, 2)}\n\n`;
+            }
+            
+            if (query.includes('compétence') || query.includes('technologie') || query.includes('maîtrise') || query.includes('outil')) {
+                context += `Compétences techniques:\n${JSON.stringify(knowledgeBase.skills, null, 2)}\n\n`;
+            }
+            
+            if (query.includes('projet') || query.includes('réalisation') || query.includes('développ')) {
+                context += `Projets réalisés:\n${JSON.stringify(knowledgeBase.projects, null, 2)}\n\n`;
+            }
+            
+            if (query.includes('certification') || query.includes('diplôme') || query.includes('formation')) {
+                context += `Certifications:\n${knowledgeBase.certifications.join('\n')}\n\n`;
+            }
+            
+            if (query.includes('contact') || query.includes('email') || query.includes('téléphone') || query.includes('linkedin')) {
+                context += `Informations de contact:\n${JSON.stringify(knowledgeBase.profile, null, 2)}\n\n`;
+            }
+
+            // Si aucun contexte spécifique trouvé, retourner le profil général
+            if (!context) {
+                context = `Profil général:\n${JSON.stringify(knowledgeBase, null, 2)}`;
+            }
+
+            return context;
+        }
+
+        // Fonction pour envoyer un message à Gemini API
+        async function sendToGemini(userMessage) {
+            const context = searchKnowledge(userMessage);
+            
+            const prompt = `Tu es l'assistant IA personnel d'Elhassan Daguagui, un Data Scientist et AI Engineer. 
+            
+Voici les informations pertinentes extraites de son portfolio:
+${context}
+
+Question de l'utilisateur: ${userMessage}
+
+Instructions:
+- Réponds de manière professionnelle et amicale
+- Utilise UNIQUEMENT les informations fournies ci-dessus
+- Si l'information n'est pas disponible, dis-le poliment
+- Sois concis mais informatif (2-4 phrases maximum)
+- Utilise des emojis pertinents pour rendre la réponse plus engageante
+- Si on demande des liens GitHub ou contact, fournis-les
+
+Réponds maintenant à la question:`;
+
+            try {
+                const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: prompt
+                            }]
+                        }]
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Erreur API Gemini');
+                }
+
+                const data = await response.json();
+                return data.candidates[0].content.parts[0].text;
+            } catch (error) {
+                console.error('Erreur Gemini:', error);
+                // Fallback avec réponse locale si l'API échoue
+                return getFallbackResponse(userMessage, context);
+            }
+        }
+
+        // Fonction de fallback si l'API ne fonctionne pas
+        function getFallbackResponse(query, context) {
+            query = query.toLowerCase();
+            
+            if (query.includes('parcours') || query.includes('formation')) {
+                return "🎓 Elhassan est actuellement en Master M2SI à l'INSEA Rabat, spécialisé en IA et analyse de données. Il a obtenu sa licence SMI à l'Université Ibn Zohr d'Agadir.";
+            }
+            
+            if (query.includes('compétence') || query.includes('technologie')) {
+                return "💻 Elhassan maîtrise Python (expert), Machine Learning, NLP, TensorFlow, PyTorch, SQL, Docker, et bien d'autres technologies. Il est particulièrement fort en Data Science et IA générative !";
+            }
+            
+            if (query.includes('projet')) {
+                return "🚀 Parmi ses projets phares: Assistant IA scientifique avec RAG, Pipeline d'analyse d'avis bancaires, Générateur de vidéos IA pour restaurants, et une application mobile Flutter avec détection d'objets. Consultez son GitHub pour plus de détails !";
+            }
+            
+            if (query.includes('certification')) {
+                return "🏆 Elhassan possède plus de 15 certifications dont: Oracle Certified Generative AI Professional, Oracle Data Science Professional, et plusieurs certifications IBM en Data Science et Machine Learning.";
+            }
+            
+            if (query.includes('contact')) {
+                return `📧 Vous pouvez contacter Elhassan:\nEmail: ${knowledgeBase.profile.email}\nTéléphone: ${knowledgeBase.profile.phone}\nLinkedIn: ${knowledgeBase.profile.linkedin}`;
+            }
+            
+            return "Je suis l'assistant IA d'Elhassan. Je peux vous renseigner sur son parcours, ses compétences, ses projets et ses certifications. Que souhaitez-vous savoir ? 😊";
+        }
+
+        // Afficher un message
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar ${isUser ? 'user' : 'bot'}">
+                    ${isUser ? '👤' : '🤖'}
+                </div>
+                <div class="message-content">${content}</div>
+            `;
+            
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // Afficher l'indicateur de frappe
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'chat-message bot';
+            typingDiv.id = 'typingIndicator';
+            
+            typingDiv.innerHTML = `
+                <div class="message-avatar bot">🤖</div>
+                <div class="typing-indicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            `;
+            
+            chatbotMessages.appendChild(typingDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+
+        // Envoyer un message
+        async function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (!message) return;
+
+            // Afficher le message utilisateur
+            addMessage(message, true);
+            chatbotInput.value = '';
+            chatbotSend.disabled = true;
+
+            // Afficher l'indicateur de frappe
+            showTypingIndicator();
+
+            // Envoyer à Gemini et obtenir la réponse
+            const response = await sendToGemini(message);
+            
+            // Retirer l'indicateur et afficher la réponse
+            removeTypingIndicator();
+            addMessage(response, false);
+            
+            chatbotSend.disabled = false;
+            chatbotInput.focus();
+        }
+
+        // Question rapide
+        function askQuestion(question) {
+            chatbotInput.value = question;
+            sendMessage();
+        }
+
+        // Gérer la touche Enter
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // ============= FIN DU CHATBOT =============
+
+        // Configuration - Chemin vers le dossier des certifications
+        const CERTIFICATIONS_FOLDER = 'assets/certifications/';
+        
+        // Liste des certifications avec leurs informations
+        // IMPORTANT: Ajoutez vos images dans le dossier assets/certifications/
+        const certifications = [
+            {
+                image: 'oracle_generative_ai.png',
+                title: 'Oracle Certified Generative AI Professional',
+                organization: 'Oracle',
+                date: 'Août 2025',
+                credential: 'OCP'
+            },
+            {
+                image: 'oracle_data_science.png',
+                title: 'Oracle Certified Data Science Professional',
+                organization: 'Oracle',
+                date: 'Août 2025',
+                credential: 'OCP'
+            },
+            {
+                image: 'ibm_applied_capstone.png',
+                title: 'Applied Data Science Capstone',
+                organization: 'IBM',
+                date: 'Oct. 2025',
+                credential: 'IBM'
+            },
+            {
+                image: 'ibm_ml_python.png',
+                title: 'Machine Learning with Python',
+                organization: 'IBM',
+                date: 'Sept. 2025',
+                credential: 'IBM'
+            },
+            {
+                image: 'ibm_data_viz.png',
+                title: 'Data Visualization with Python',
+                organization: 'IBM',
+                date: 'Août 2025',
+                credential: 'IBM'
+            },
+            {
+                image: 'ibm_data_analysis.png',
+                title: 'Data Analysis with Python',
+                organization: 'IBM',
+                date: 'Août 2025',
+                credential: 'IBM'
+            },
+            {
+                image: 'ibm_sql.png',
+                title: 'Databases & SQL for Data Science',
+                organization: 'IBM',
+                date: 'Juil. 2025',
+                credential: 'IBM'
+            },
+            {
+                image: 'ibm_python_project.png',
+                title: 'Python Project for Data Science',
+                organization: 'IBM',
+                date: 'Mars 2025',
+                credential: 'IBM'
+            },
+            {
+                image: 'ibm_python_ai.png',
+                title: 'Python for Data Science AI & Development',
+                organization: 'IBM',
+                date: 'Fév. 2025',
+                credential: 'IBM'
+            },
+            {
+                image: 'ibm_methodology.png',
+                title: 'Data Science Methodology',
+                organization: 'IBM',
+                date: 'Jan. 2025',
+                credential: 'IBM'
+            },
+            {
+                image: 'ibm_tools.png',
+                title: 'Tools for Data Science',
+                organization: 'IBM',
+                date: 'Jan. 2025',
+                credential: 'IBM'
+            },
+            {
+                image: 'stanford_ml.png',
+                title: 'Supervised Machine Learning',
+                organization: 'DeepLearning.AI & Stanford',
+                date: 'Août 2025',
+                credential: 'Coursera'
+            },
+            {
+                image: 'flutter_dart.png',
+                title: 'Flutter and Dart: Developing Mobile Apps',
+                organization: 'IBM',
+                date: 'Sept. 2025',
+                credential: 'IBM'
+            },
+            {
+                image: 'iot_yonsei.png',
+                title: 'IoT, Wireless & Cloud Computing',
+                organization: 'Yonsei University',
+                date: 'Août 2025',
+                credential: 'Coursera'
+            },
+            {
+                image: 'laravel.png',
+                title: 'Laravel Framework for Beginners',
+                organization: 'Alison',
+                date: 'Mai 2025',
+                credential: 'Alison'
+            }
+        ];
+
+        // Fonction pour charger les certifications
+        function loadCertifications() {
+            const grid = document.getElementById('certificationsGrid');
+            
+            certifications.forEach((cert, index) => {
+                const certCard = document.createElement('div');
+                certCard.className = 'cert-card';
+                certCard.style.opacity = '0';
+                certCard.style.transform = 'translateY(30px)';
+                certCard.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                
+                certCard.innerHTML = `
+                    <div class="cert-image-wrapper">
+                        <img src="${CERTIFICATIONS_FOLDER}${cert.image}" 
+                             alt="${cert.title}"
+                             onerror="this.src='https://via.placeholder.com/400x300/2563eb/ffffff?text=${encodeURIComponent(cert.organization)}'">
+                        <span class="cert-badge">${cert.credential}</span>
+                        <div class="cert-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="cert-org">${cert.organization}</span>
+                        <h3>${cert.title}</h3>
+                        <div class="cert-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            ${cert.date}
+                        </div>
+                    </div>
+                `;
+                
+                // Ajouter événement pour ouvrir la modal
+                certCard.addEventListener('click', () => {
+                    openCertModal(cert);
+                });
+                
+                grid.appendChild(certCard);
+                
+                // Animation d'entrée
+                setTimeout(() => {
+                    certCard.style.opacity = '1';
+                    certCard.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        }
+
+        // Fonction pour ouvrir la modal
+        function openCertModal(cert) {
+            const modal = document.getElementById('certModal');
+            const modalImg = document.getElementById('modalImg');
+            const caption = document.getElementById('modalCaption');
+            
+            modal.style.display = 'block';
+            modalImg.src = `${CERTIFICATIONS_FOLDER}${cert.image}`;
+            caption.innerHTML = `<strong>${cert.title}</strong><br>${cert.organization} - ${cert.date}`;
+        }
+
+        // Fermer la modal
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCertifications();
+            
+            const modal = document.getElementById('certModal');
+            const closeBtn = document.querySelector('.cert-modal-close');
+            
+            closeBtn.onclick = () => {
+                modal.style.display = 'none';
+            };
+            
+            modal.onclick = (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            };
+            
+            // Fermer avec Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and timeline items
+        document.querySelectorAll('.project-card, .skill-category, .timeline-item, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
